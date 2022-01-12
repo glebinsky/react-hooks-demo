@@ -1,12 +1,16 @@
 import sc from 'styled-components'
 
-export default function Checkbox() {
-  return <CheckboxJSX />
+export default function Checkbox({ setChecked }) {
+  function onClick(event) {
+    setChecked(event.target.checked)
+  }
+
+  return <CheckboxJSX onClick={onClick}/>
 }
 
-function CheckboxJSX() {
+function CheckboxJSX({ onClick }) {
   return <>
-    <StyledCheckbox type="checkbox" />
+    <StyledCheckbox type="checkbox" onClick={onClick}/>
   </>
 }
 

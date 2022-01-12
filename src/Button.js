@@ -29,5 +29,5 @@ const StyledButton = sc.button`
   min-width: 60px;
   height: 40px;
   color: black;
-  background-color: $(props => props.color : 'white');
+  background-color: ${props => (props.color || 'white')};
 `
