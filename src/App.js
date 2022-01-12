@@ -6,21 +6,21 @@ import Select from './Select'
 import React from 'react'
 
 export default function App() {
-  const [buttonColor, setButtonColor] = React.useState(null)
+  const [buttonColor, setButtonColor] = React.useState()
 
-  return <AppJSX setButtonColor={setButtonColor} />
+  return <AppJSX buttonColor={buttonColor} setButtonColor={setButtonColor} />
 }
 
-function AppJSX({ setButtonColor }) {
+function AppJSX({ buttonColor, setButtonColor }) {
   return <>
     <StyledApp className="App">
       <div>
         <Checkbox />
-        <Button />
+        <Button color={buttonColor} />
       </div>
       <div>
         <Checkbox />
-        <Button />
+        <Button color={buttonColor} />
       </div>
       <Select setButtonColor={setButtonColor} />
     </StyledApp>

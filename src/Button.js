@@ -1,7 +1,7 @@
 import sc from 'styled-components'
 import React from 'react'
 
-export default function Button(props) {
+export default function Button({ color }) {
   const [count, setCount] = React.useState(0)
 
   function onClick() {
@@ -12,13 +12,14 @@ export default function Button(props) {
     <ButtonJSX
       onClick={onClick}
       count={count}
+      color={color}
     />
   </>
 }
 
-function ButtonJSX({ onClick, count }) {
+function ButtonJSX({ onClick, count, color }) {
   return <>
-    <StyledButton onClick={onClick}>
+    <StyledButton onClick={onClick} color={color}>
       Click count {count}
     </StyledButton>
   </>
@@ -28,5 +29,5 @@ const StyledButton = sc.button`
   min-width: 60px;
   height: 40px;
   color: black;
-  background-color: wheat;
+  background-color: $(props => props.color : 'white');
 `

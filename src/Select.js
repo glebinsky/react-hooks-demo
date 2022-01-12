@@ -5,15 +5,14 @@ export default function Select({ setButtonColor }) {
   const colors = ['aqua', 'tan', 'pink']
 
   function onChange(event) {
-    const newColor = colors[event.target.value]
-    setButtonColor(newColor)
+    setButtonColor(event.target.value)
   }
 
   return <>
     <SelectJSX
       onChange={onChange}
       colors={colors}
-      defaultValue={colors[0]}
+      defaultValue="select"
     />
   </>
 }
@@ -21,6 +20,7 @@ export default function Select({ setButtonColor }) {
 function SelectJSX({ onChange, colors, defaultValue }) {
   return <>
     <StyledSelect onChange={onChange} defaultValue={defaultValue}>
+      <StyledOption value="select">Select</StyledOption>
       { colors.map(color =>
         <StyledOption key={color} value={color}>{color}</StyledOption>) }
     </StyledSelect>
